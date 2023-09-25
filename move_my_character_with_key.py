@@ -34,7 +34,6 @@ def handle_event():
                 dir[1]-=1
             elif event.key==SDLK_DOWN:
                 dir[1]+=1
-    frame=(frame+1)%8
 
 
 open_canvas(TUK_WIDTH,TUK_HEIGHT)
@@ -46,6 +45,10 @@ while(running):
     ch.clip_composite_draw(frame*32,32*6,ch_size[0],ch_size[1],0,see_direction,x,y,128,128)
     update_canvas()
     handle_event()
+    if not (dir[0]==0 and dir[1]==0):
+        frame=(frame+1)%8
+    else:
+        frame=0
     x+=dir[0]*10
     y+=dir[1]*10
     delay(0.03)
