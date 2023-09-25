@@ -12,7 +12,9 @@ def handle_event():
     global running,dir,frame,see_direction
     events=get_events()
     for event in events:
-        if event.type==SDL_KEYDOWN:
+        if event.type==SDL_QUIT:
+            running=False
+        elif event.type==SDL_KEYDOWN:
             if event.key==SDLK_LEFT:
                 dir[0]-=1
                 see_direction='h'
