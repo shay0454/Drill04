@@ -42,7 +42,7 @@ TUK_GROUND=load_image("TUK_GROUND.png")
 while(running):
     clear_canvas()
     TUK_GROUND.draw(TUK_WIDTH//2,TUK_HEIGHT//2)
-    ch.clip_composite_draw(frame*32,32*6,ch_size[0],ch_size[1],0,'',x,y,128,128)
+    ch.clip_composite_draw(frame*32,32*6,ch_size[0],ch_size[1],0,see_direction,x,y,128,128)
     update_canvas()
     handle_event()
     if not (dir[0]==0 and dir[1]==0):
@@ -51,7 +51,8 @@ while(running):
         frame=0
     if (x>=32 and dir[0]<=0) or (x<=TUK_WIDTH-32 and dir[0]>=0):
         x+=dir[0]*10
-    y+=dir[1]*10
+    if (y>=128 and dir[1]<=0) or (y<=TUK_HEIGHT-128 and dir[1]>=0):
+        y+=dir[1]*10
     delay(0.03)
 
 close_canvas()
