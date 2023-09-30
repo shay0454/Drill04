@@ -1,6 +1,7 @@
 import os
 from pico2d import *
-os.chdir("C:\\github\\2Dprogramming\\Drill04")
+script_dir=os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
 TUK_WIDTH,TUK_HEIGHT=1280,1024
 ch_size=[32,32]
 running =True
